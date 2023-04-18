@@ -3,5 +3,5 @@ from chat.views import index
 from . import views
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("chat/", views.index, name="index"),
 ]
