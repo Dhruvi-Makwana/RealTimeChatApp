@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "chat",
 ]
 
-ASGI_APPLICATION = 'chatify.asgi.application'
+ASGI_APPLICATION = "chatify.asgi.application"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
