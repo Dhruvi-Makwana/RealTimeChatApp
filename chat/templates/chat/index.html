@@ -6,5 +6,40 @@
 </head>
 <body>
     <h1>let's chat</h1>
+    <div id="messages"></div>
+    <form id="form">
+        <input type="text" name="message"/>
+    </form>
+
+<script type="text/javascript">
+    let url = `ws://${window.location.host}/ws/socket-server/`;
+
+    function showMessage(message){
+        
+        let messages = document.getElementById('messages')
+        messages.insertAdjacentHTML('beforeend', `<div><p>${message}</p></div>`);
+        }
+
+    const chatSocket = new WebSocket(url)
+    const chatData = 'chat_message'
+    chatSocket.onmessage = function(e) {
+        let data = JSON.parse(e.data)
+        if (data.type === chatData) {
+            showMessage(data.message)
+        }
+    }
+    
+    let form = document.getElementById('form')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        let message = e.target.message.value
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }))
+    
+        form.reset()
+    })
+
+</script>
 </body>
 </html>
