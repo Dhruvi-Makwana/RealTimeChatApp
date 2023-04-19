@@ -7,8 +7,6 @@ class ChatConsumers(WebsocketConsumer):
         self.user = self.scope["user"]
         if self.user.is_authenticated:
             self.accept()
-        else:
-            print("connection failed")
 
     def receive(self, text_data=None, bytes_data=None):
         text_data_json = json.loads(text_data)

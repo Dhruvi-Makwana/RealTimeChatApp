@@ -9,6 +9,7 @@
         <title>chat_app</title>
     </head>
     <body>
+        <h1 id="error_messgae"></h1>
         <div class="container">
             <h1>let's chat</h1>
             <div id="messages" class="row"></div>
@@ -24,7 +25,7 @@
 
 <script type="text/javascript">
     let url = `ws://${window.location.host}/ws/socket-server/`;
-
+    console.log(url)
     function showMessage(message) {
     
         let messages = document.getElementById('messages')
@@ -39,6 +40,11 @@
         if (data.type === chatData) {
             showMessage(data.message)
         }
+    }
+  
+    chatSocket.onerror = function(e) {
+            let error_messages = document.getElementById('error_messgae')
+            error_messages.innerHTML = "Please log in to chat."
     }
     
     let form = document.getElementById('form')
