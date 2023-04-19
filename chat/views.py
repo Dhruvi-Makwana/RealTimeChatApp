@@ -16,5 +16,5 @@ class AdminLogin(LoginView):
     authentication_form = LoginForm
 
 
-class Adminlogout(LoginRequiredMixin,LogoutView):
+class Adminlogout(LoginRequiredMixin, LogoutView):
     pass

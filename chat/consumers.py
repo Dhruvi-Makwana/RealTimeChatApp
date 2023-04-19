@@ -5,7 +5,6 @@ from channels.generic.websocket import WebsocketConsumer
 class ChatConsumers(WebsocketConsumer):
 
     def connect(self):
-        # self.user = self.scope["user"]
         self.accept()
 
     def receive(self, text_data=None, bytes_data=None):
