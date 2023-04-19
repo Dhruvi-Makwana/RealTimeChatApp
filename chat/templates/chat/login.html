@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form method="post" class="form-control" autocomplete="off">
+                     {% csrf_token %}
+                    <div class="input-group mb-3 ms-5 ps-5">
+                        <span class="input-group-text me-3">User Name</span>
+                        {{ form.username }}
+                    </div>
+
+                    <div class="input-group mb-3 ms-5 ps-5">
+
+                        <span class="input-group-text me-3">password</span>
+                         {{ form.password }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+</body>
+</html>
