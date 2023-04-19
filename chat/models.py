@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-
     mobile_number = models.CharField(max_length=10)
     profile = models.ImageField(
         upload_to="user_profile/",
@@ -11,5 +10,5 @@ class User(AbstractUser):
         width_field=None,
         max_length=100,
         blank=True,
-        null=True
+        null=True,
     )
